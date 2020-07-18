@@ -13,7 +13,9 @@ class ListScreen extends StatelessWidget {
             RaisedButton(
               child: Text('tap here'),
               onPressed: () {
-                Navigator.pushNamed(context, DetailRoute.routeName);
+                Navigator.pushNamed(context, DetailScreen.routeName,
+                    arguments: DetailScreenArguments(
+                        'uuid', 'Oeschinen Lake Campground'));
               },
             )
           ],
