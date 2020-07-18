@@ -88,7 +88,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
           appBar: AppBar(title: Text('Flutter layout dem0')),
-          body: Column(
+          body: ListView(
             children: [imageSection, titleSection, buttonSection, textSection],
           )),
     );
