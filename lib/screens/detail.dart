@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class DetailRoute extends StatelessWidget {
+class DetailScreen extends StatelessWidget {
+  static const routeName = '/detail';
+
   @override
   Widget build(BuildContext context) {
     final Color color = Theme.of(context).primaryColor;

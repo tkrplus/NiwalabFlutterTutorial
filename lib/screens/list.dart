@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:NiwalabFlutterTutorial/screens/detail.dart';
 
-class ListRoute extends StatelessWidget {
+class ListScreen extends StatelessWidget {
+  static const routeName = '/';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +13,7 @@ class ListRoute extends StatelessWidget {
             RaisedButton(
               child: Text('tap here'),
               onPressed: () {
-                Navigator.pushNamed(context, '/detail');
+                Navigator.pushNamed(context, DetailRoute.routeName);
               },
             )
           ],

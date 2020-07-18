@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'pages/list.dart';
-import 'pages/detail.dart';
+import 'screens/list.dart';
+import 'screens/detail.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => ListRoute(),
-          '/detail': (context) => DetailRoute(),
+          ListScreen.routeName: (context) => ListScreen(),
+          DetailScreen.routeName: (context) => DetailScreen(),
         });
   }
 }
