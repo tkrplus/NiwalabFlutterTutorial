@@ -9,6 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color color = Theme.of(context).primaryColor;
+
+    final Widget imageSection = Image.asset(
+      'images/lake.jpg',
+      width: 600,
+      height: 240,
+      fit: BoxFit.cover,
+    );
     final Widget titleSection = Container(
       padding: const EdgeInsets.all(32),
       child: Row(children: [
@@ -82,7 +89,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(title: Text('Flutter layout dem0')),
           body: Column(
-            children: [titleSection, buttonSection, textSection],
+            children: [imageSection, titleSection, buttonSection, textSection],
           )),
     );
   }
