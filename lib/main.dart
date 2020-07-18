@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final Color color = Theme.of(context).primaryColor;
     final Widget titleSection = Container(
       padding: const EdgeInsets.all(32),
       child: Row(children: [
@@ -32,9 +33,21 @@ class MyApp extends StatelessWidget {
           ),
         ),
         Icon(Icons.star, color: Colors.red[500]),
-        Text('41')
+        Text('42')
       ]),
     );
+
+    final Widget buttonSection = Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          _buildButtonColumn(color, Icons.call, String, 'CALL'),
+          _buildButtonColumn(color, Icons.near_me, String, 'ROUTE'),
+          _buildButtonColumn(color, Icons.share, String, 'SHARE')
+        ],
+      ),
+    );
+
     return MaterialApp(
       title: 'Flutter layout demo',
       theme: ThemeData(
@@ -47,17 +60,37 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
-          appBar: AppBar(title: Text('Flutter layout demo')),
+          appBar: AppBar(title: Text('Flutter layout dem0')),
           body: Column(
-            children: [titleSection],
+            children: [titleSection, buttonSection],
           )),
     );
+  }
+
+  Column _buildButtonColumn(Color color, IconData icon, String, label) {
+    return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: color),
+          Container(
+            margin: const EdgeInsets.only(top: 8),
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: color,
+              ),
+            ),
+          )
+        ]);
   }
 }
