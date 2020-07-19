@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class PlacesScreen extends StatelessWidget {
   static const routeName = '/places';
 
+  const PlacesScreen({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final places =
@@ -26,7 +28,7 @@ class PlacesScreen extends StatelessWidget {
       },
     );
     return Scaffold(
-      appBar: AppBar(title: Text('Hoge')),
+      appBar: AppBar(title: Text('Places')),
       body: listView,
     );
   }

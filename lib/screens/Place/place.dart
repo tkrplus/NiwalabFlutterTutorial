@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class PlaceScreenArguments {
@@ -113,23 +115,26 @@ class FavoriteWidget extends StatefulWidget {
 
 class _FavoriteWidgetState extends State<FavoriteWidget> {
   bool _isFavorited = true;
-  int _favoriteCount = 36;
+  int _favoriteCount = Random.secure().nextInt(99);
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).primaryColor;
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
             padding: EdgeInsets.all(0),
             child: IconButton(
-              icon: (_isFavorited ? Icon(Icons.star) : Icon(Icons.star_border)),
-              color: Colors.red[500],
+              icon: (_isFavorited
+                  ? Icon(Icons.favorite)
+                  : Icon(Icons.favorite_border)),
+              color: color,
               onPressed: _toggleFavorite,
             )),
         SizedBox(
           width: 18,
           child: Container(
-            child: Text('$_favoriteCount'),
+            child: Text('$_favoriteCount', textAlign: TextAlign.right),
           ),
         ),
       ],
