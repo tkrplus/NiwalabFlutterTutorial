@@ -1,5 +1,6 @@
 import 'package:NiwalabFlutterTutorial/screens/Place/place.dart';
 import 'package:NiwalabFlutterTutorial/screens/Place/places.dart';
+import 'package:NiwalabFlutterTutorial/screens/album/albums.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -17,6 +18,7 @@ class App extends StatelessWidget {
       routes: {
         PlacesScreen.routeName: (context) => PlacesScreen(),
         PlaceScreen.routeName: (context) => PlaceScreen(),
+        AlbumsScreen.routeName: (context) => AlbumsScreen(),
       },
     );
   }
@@ -35,7 +37,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
       'Home',
       style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
     ),
-    PlacesScreen()
+    PlacesScreen(),
+    AlbumsScreen(),
+    Text(
+      'User',
+      style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -48,17 +55,31 @@ class _BottomNavigationState extends State<BottomNavigation> {
   Widget build(BuildContext context) {
     final color = Theme.of(context).primaryColor;
     return Scaffold(
-        body: Center(child: _widgetOptions[_selectedState]),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home), title: Text('Home')),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.place), title: Text('Place')),
-          ],
-          currentIndex: _selectedState,
-          selectedItemColor: color,
-          onTap: _onItemTapped,
-        ));
+      body: Center(child: _widgetOptions[_selectedState]),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.place), title: Text('Place')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.music_note), title: Text('Album')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person), title: Text('User')),
+        ],
+        currentIndex: _selectedState,
+        selectedItemColor: color,
+        unselectedItemColor: Colors.lightGreen,
+        onTap: _onItemTapped,
+        elevation: 6.0,
+        iconSize: 18.0,
+        showUnselectedLabels: true,
+        // iconSize: ,
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.view_carousel),
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
   }
 }
