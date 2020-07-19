@@ -113,7 +113,7 @@ class FavoriteWidget extends StatefulWidget {
 }
 
 class _FavoriteWidgetState extends State<FavoriteWidget> {
-  bool _isFavorited = true;
+  bool _isFavorited = false;
   int _favoriteCount = Random.secure().nextInt(99);
   @override
   Widget build(BuildContext context) {
@@ -131,7 +131,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
               onPressed: _toggleFavorite,
             )),
         SizedBox(
-          width: 18,
+          width: 20,
           child: Container(
             child: Text('$_favoriteCount', textAlign: TextAlign.right),
           ),
