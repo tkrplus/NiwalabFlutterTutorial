@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
-class DetailScreenArguments {
+class PlaceScreenArguments {
   final String placeId;
   final String placeName;
 
-  DetailScreenArguments(this.placeId, this.placeName);
+  PlaceScreenArguments(this.placeId, this.placeName);
 }
 
-class DetailScreen extends StatelessWidget {
-  static const routeName = '/detail';
+class PlaceScreen extends StatelessWidget {
+  static const routeName = '/places/detail';
 
   @override
   Widget build(BuildContext context) {
-    final DetailScreenArguments args =
-        ModalRoute.of(context).settings.arguments;
+    final PlaceScreenArguments args = ModalRoute.of(context).settings.arguments;
     final Color color = Theme.of(context).primaryColor;
 
     final Widget imageSection = Image.asset(
@@ -115,7 +114,6 @@ class FavoriteWidget extends StatefulWidget {
 class _FavoriteWidgetState extends State<FavoriteWidget> {
   bool _isFavorited = true;
   int _favoriteCount = 36;
-
   @override
   Widget build(BuildContext context) {
     return Row(

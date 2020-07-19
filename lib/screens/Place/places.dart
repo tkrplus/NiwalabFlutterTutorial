@@ -1,9 +1,9 @@
 import 'package:NiwalabFlutterTutorial/models/Place.dart';
+import 'package:NiwalabFlutterTutorial/screens/Place/place.dart';
 import 'package:flutter/material.dart';
-import 'package:NiwalabFlutterTutorial/screens/detail.dart';
 
-class ListScreen extends StatelessWidget {
-  static const routeName = '/';
+class PlacesScreen extends StatelessWidget {
+  static const routeName = '/places';
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,9 @@ class ListScreen extends StatelessWidget {
           title: Text(place.placeName),
           trailing: FavoriteWidget(),
           onTap: () {
-            Navigator.pushNamed(context, DetailScreen.routeName,
+            Navigator.pushNamed(context, PlaceScreen.routeName,
                 arguments:
-                    DetailScreenArguments(place.placeId, place.placeName));
+                    PlaceScreenArguments(place.placeId, place.placeName));
           },
         );
       },

@@ -1,6 +1,6 @@
+import 'package:NiwalabFlutterTutorial/screens/Place/place.dart';
+import 'package:NiwalabFlutterTutorial/screens/Place/places.dart';
 import 'package:flutter/material.dart';
-import 'screens/list.dart';
-import 'screens/detail.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,15 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter layout demo',
+        title: 'Flutter Tutorial',
         theme: ThemeData(
           primarySwatch: Colors.orange,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         initialRoute: '/',
         routes: {
-          ListScreen.routeName: (context) => ListScreen(),
-          DetailScreen.routeName: (context) => DetailScreen(),
+          PlaceScreen.routeName: (context) => PlaceScreen(),
+          PlacesScreen.routeName: (context) => PlacesScreen(),
         });
   }
 }
