@@ -1,26 +1,26 @@
 import 'dart:async';
-import 'dart:convert';
 
-import 'package:NiwalabFlutterTutorial/models/Album.dart';
+import 'package:NiwalabFlutterTutorial/models/album.model.dart';
+import 'package:NiwalabFlutterTutorial/services/album.service.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
-class AlbumsScreen extends StatefulWidget {
+class AlbumsPage extends StatefulWidget {
   static const routeName = '/albums';
 
-  const AlbumsScreen({Key key}) : super(key: key);
+  const AlbumsPage({Key key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _AlbumsScreenState();
+  State<StatefulWidget> createState() => _AlbumsPageState();
 }
 
-class _AlbumsScreenState extends State<AlbumsScreen> {
+class _AlbumsPageState extends State<AlbumsPage> {
   Future<List<Album>> futureAlbums;
+  final AlbumService _albumService = AlbumService();
 
   @override
   void initState() {
     super.initState();
-    futureAlbums = fetchAlbums();
+    futureAlbums = _albumService.fetchAlbums();
   }
 
   @override
@@ -41,24 +41,11 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
                   },
                 );
               } else if (snapshot.hasError) {
+                print(snapshot.error);
                 return Center(child: Text('$snapshot.error'));
               }
               return Center(child: CircularProgressIndicator());
             }));
-  }
-
-  Future<List<Album>> fetchAlbums() async {
-    final response =
-        await http.get('https://jsonplaceholder.typicode.com/photos');
-    if (response.statusCode == 200) {
-      print(response.body);
-      print(json.decode(response.body));
-      return (json.decode(response.body) as List)
-          .map((album) => Album.fromJson(album))
-          .toList();
-    } else {
-      throw Exception('Failed to load album.');
-    }
   }
 }
 

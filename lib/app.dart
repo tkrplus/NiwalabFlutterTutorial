@@ -1,6 +1,6 @@
-import 'package:NiwalabFlutterTutorial/screens/Place/place.dart';
-import 'package:NiwalabFlutterTutorial/screens/Place/places.dart';
-import 'package:NiwalabFlutterTutorial/screens/album/albums.dart';
+import 'package:NiwalabFlutterTutorial/ui/pages/album/albums.page.dart';
+import 'package:NiwalabFlutterTutorial/ui/pages/place/place.page.dart';
+import 'package:NiwalabFlutterTutorial/ui/pages/place/places.page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -14,11 +14,11 @@ class App extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: BottomNavigation(),
-      initialRoute: PlacesScreen.routeName,
+      initialRoute: PlacesPage.routeName,
       routes: {
-        PlacesScreen.routeName: (context) => PlacesScreen(),
-        PlaceScreen.routeName: (context) => PlaceScreen(),
-        AlbumsScreen.routeName: (context) => AlbumsScreen(),
+        PlacesPage.routeName: (context) => PlacesPage(),
+        PlacePage.routeName: (context) => PlacePage(),
+        AlbumsPage.routeName: (context) => AlbumsPage(),
       },
     );
   }
@@ -37,8 +37,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
       'Home',
       style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
     ),
-    PlacesScreen(),
-    AlbumsScreen(),
+    PlacesPage(),
+    AlbumsPage(),
     Text(
       'User',
       style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),

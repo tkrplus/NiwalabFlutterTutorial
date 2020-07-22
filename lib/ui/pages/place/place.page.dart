@@ -1,19 +1,19 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-class PlaceScreenArguments {
+class PlacePageArguments {
   final String placeId;
   final String placeName;
 
-  PlaceScreenArguments(this.placeId, this.placeName);
+  PlacePageArguments(this.placeId, this.placeName);
 }
 
-class PlaceScreen extends StatelessWidget {
+class PlacePage extends StatelessWidget {
   static const routeName = '/places/detail';
 
   @override
   Widget build(BuildContext context) {
-    final PlaceScreenArguments args = ModalRoute.of(context).settings.arguments;
+    final PlacePageArguments args = ModalRoute.of(context).settings.arguments;
     final Color color = Theme.of(context).primaryColor;
 
     final Widget imageSection = Image.asset(
